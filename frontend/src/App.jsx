@@ -1,17 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import CTA from './components/CTA';
+import Footer from './components/Footer';
 
 function App() {
-
   return (
-    <div className="container text-center mt-5">
-      <h1>Frontend is running 🚀 (Vite)</h1>
+    <div className="app">
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <CTA />
+      </main>
+      <Footer />
     </div>
-  )
-
+  );
 }
 
-export default App
+export default App;
 
