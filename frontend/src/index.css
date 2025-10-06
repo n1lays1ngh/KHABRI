@@ -8,13 +8,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0B0C1B; /* Dark background color */
+  background-color: #030418; /* Dark background color */
   color: #E0E0E0; /* Light text color for contrast */
 }
 
 /* Custom button styling */
 .btn-custom {
-  background: linear-gradient(90deg, #6e45ff 0%, #8966ff 100%);
+  background: linear-gradient(90deg, #ff45c1 0%, #8966ff 100%);
   border: none;
   padding: 12px 30px;
   font-weight: 600;
