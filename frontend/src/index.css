@@ -1,34 +1,215 @@
-/* Add this to your index.css file */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* --- Global Styles & Original "Khabri" Theme --- */
+
+/* Import a good font, like Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #1e1e1e;
+  --color-bg-secondary: #2c2c2c;
+  --color-text: #e8e8e8;
+  --color-heading: #ffffff;
+  --color-primary: #5ac8fa; /* Light blue accent */
+  --color-primary-hover: #82dfff;
+  --color-border: #3a3a3a;
+  --color-placeholder: #a0a0a0;
+}
+
+
 
 body {
-  margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #030418; /* Dark background color */
-  color: #E0E0E0; /* Light text color for contrast */
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
 }
 
-/* Custom button styling */
-.btn-custom {
-  background: linear-gradient(90deg, #ff45c1 0%, #8966ff 100%);
-  border: none;
-  padding: 12px 30px;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Override Bootstrap Components for the new theme */
+.btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-heading) !important; /* White text on purple button */
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  padding: 10px 24px;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
 }
 
-.btn-custom:hover {
+.btn-primary:hover {
+  background-color: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(110, 69, 255, 0.4);
 }
 
-/* Add some spacing between sections */
-.section-spacer {
-  padding-top: 80px;
-  padding-bottom: 80px;
+.form-control,
+.form-select {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 16px;
 }
 
+.form-control::placeholder {
+  color: var(--color-placeholder);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3); /* Purple focus ring */
+}
+
+/* Custom Card Style for Features on Landing Page */
+.feature-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(138, 43, 226, 0.1); /* Light purple background for icon */
+  color: var(--color-primary); /* Primary purple icon color */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Specific to Results Page */
+.filter-sidebar {
+  background-color: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+}
+
+.summary-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary); /* Purple left border */
+}
+
+.source-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+.source-card:hover {
+  border-color: var(--color-primary);
+}
+
+.summary-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.summary-list li {
+  position: relative;
+  padding-left: 30px; /* Space for the icon */
+  margin-bottom: 12px;
+}
+
+/* Custom bullet point (the '•') */
+.summary-list li::before {
+  content: '•';
+  color: var(--color-primary); /* Purple bullet */
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -4px;
+}
+
+.summary-list strong {
+  color: #fff; /* White keyword */
+  font-weight: 600;
+}
+
+/* --- Source Card Dropdown Styles --- */
+.reason-toggle {
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.reason-toggle:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Rotate the chevron icon */
+.reason-toggle svg {
+  transition: transform 0.3s ease;
+}
+.reason-toggle.open svg {
+  transform: rotate(180deg);
+}
+
+/* Collapsible content */
+.bias-reasoning {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+}
+
+.bias-reasoning.open {
+  max-height: 200px; /* Animate to a height */
+  margin-top: 10px;
+  transition: max-height 0.3s ease-in, margin-top 0.3s ease-in;
+}
+
+.summary-content-scroll {
+  max-height: 700px; /* Set a max height for the summary box */
+  overflow-y: auto; /* Add scrollbar only when needed */
+  
+  /* Custom Scrollbar Styling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--color-primary) var(--color-border); /* For Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.summary-content-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.summary-content-scroll::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+.summary-content-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+.summary-content-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover);
+}

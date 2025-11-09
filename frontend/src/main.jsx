@@ -1,18 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+// Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'
+// Import your custom styles (must come AFTER bootstrap)
+import './index.css'
+import App from './App'
 
-// 1. Import Bootstrap's main CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// 2. Import Bootstrap's icon font CSS (This adds the icons)
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-// 3. Import your custom global CSS (This adds the dark theme)
-import './index.css';
-
+// This line finds the <div id="root"> and puts your App inside it
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-);
+)
+

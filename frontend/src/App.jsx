@@ -1,24 +1,26 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import LandingPage from './Pages/LandingPage'
+import ResultsPage from './Pages/ResultsPage'
+
+// 1. Import the provider
+import { NewsProvider } from './context/NewsContext'
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <Hero />
-        <Features />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
-  );
+    
+    <NewsProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/results" element={<ResultsPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </NewsProvider>
+  )
 }
 
-export default App;
-
+export default App

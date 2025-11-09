@@ -16,7 +16,7 @@ def search_news(state):
     try:
         results = search.results(
             query=search_query, 
-            max_results=5, 
+            max_results=10, 
             search_depth="advanced",
             # include_domains=[
             #     "thehindu.com",
