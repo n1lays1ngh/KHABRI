@@ -9,6 +9,7 @@ load_dotenv()
 
 origins = [
     "http://localhost:5173",
+    "https://khabri-rho.vercel.app"
 ]
 
 app.add_middleware(

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
 // The URL for your FastAPI backend
-const API_URL = 'http://localhost:8000'; // Or whatever port you run it on
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'; // Or whatever port you run it on
 
 // 1. Create the context
 const NewsContext = createContext();
