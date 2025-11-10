@@ -107,7 +107,7 @@ If any point fails these checks, **revise it before producing the final output.*
 ### OUTPUT FORMAT ###
 Your final response MUST strictly adhere to the following JSON schema.
 
-**CRITICAL:** Your output must be ONLY the raw JSON text, starting with { and ending with }.
+**CRITICAL:** Your output must be ONLY the raw JSON text, starting with **{{** and ending with **}}**.
 Do not, under any circumstances, wrap the JSON in ```json markdown fences or include any other text, explanations, or pre-amble.
 
 {format_instructions}
