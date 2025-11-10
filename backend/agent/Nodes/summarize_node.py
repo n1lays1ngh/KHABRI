@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from agent.News_State import NewsState
 import os 
 from pydantic import BaseModel, Field
-from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers import PydanticOutputParser,StrOutputParser
 load_dotenv()
 
 class ArticleSummary(BaseModel):
@@ -110,7 +110,7 @@ Your final response MUST strictly adhere to the following JSON schema.
 **CRITICAL:** Your output must be ONLY the raw JSON text, starting with **{{** and ending with **}}**.
 Do not, under any circumstances, wrap the JSON in ```json markdown fences or include any other text, explanations, or pre-amble.
 
-{format_instructions}
+{format_instructions} 
 
 """
 
@@ -130,8 +130,9 @@ Do not, under any circumstances, wrap the JSON in ```json markdown fences or inc
         [f"Title: {a['title']}\nURL: {a['url']}\nBody: {a['body']}" for a in results]
     )
 
-    chain = prompt | llm | parser
+    chain = prompt | llm | StrOutputParser() | parser
 
+   
     summary_dict = {
         "overall_summary": "An unexpected error occurred before summarization.",
         "articles": []
@@ -143,8 +144,8 @@ Do not, under any circumstances, wrap the JSON in ```json markdown fences or inc
     except Exception as e:
         
         print(f"Error parsing JSON from model: {e}")
-        summary_data = {
-            "overall_summary": "Could not generate a summary due to an error.", 
+        summary_dict = {
+            "overall_summary": f"Could not generate a summary due to an error: {e}", 
             "articles": []
         }
 
