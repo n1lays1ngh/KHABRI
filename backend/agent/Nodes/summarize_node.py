@@ -23,7 +23,7 @@ if 'GOOGLE_API_KEY' not in os.environ:
     print("Warning: GOOGLE_API_KEY not set. Please set the environment variable.")
 
 def summarize_news(state: NewsState):
-    llm = ChatGoogleGenerativeAI(model = "gemini-2.0-flash" , temperature = 0.5)
+    llm = ChatGoogleGenerativeAI(model = "gemini-1.5-flash" , temperature = 0.5)
     parser = PydanticOutputParser(pydantic_object=NewsSummary)
 
     prompt_template_string = """
